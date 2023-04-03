@@ -14,9 +14,11 @@ const ThemeStateContext = React.createContext<ThemeState | null>(null);
 const themeLocalStorage = createThemeLocalStorage();
 
 function ThemeStateProvider({ children }: { children: React.ReactNode }) {
-  const [themeValue, _setThemeValue] = React.useState<ThemeValue>(
-    themeLocalStorage.get() || "light"
-  );
+  const [themeValue, _setThemeValue] = React.useState<ThemeValue>("light");
+
+  React.useEffect(() => {
+    _setThemeValue(themeLocalStorage.get() || "light");
+  }, []);
 
   const setThemeValue = React.useCallback((value: ThemeValue) => {
     themeLocalStorage.set(value);
