@@ -8,12 +8,7 @@ import { Input } from "baseui/input";
 import React from "react";
 import { DeleteAlt } from "@/components/icons";
 import { FileUploader } from "baseui/file-uploader";
-import {
-  HeadingMedium,
-  LabelMedium,
-  LabelSmall,
-  ParagraphSmall,
-} from "baseui/typography";
+import { HeadingMedium, LabelMedium } from "baseui/typography";
 import { useStyletron } from "@/styles";
 import { Button } from "baseui/button";
 import { useRouter } from "next/navigation";
@@ -90,6 +85,9 @@ function ProfileClientPage() {
   const disableSaveButton =
     hasSubmitted && (isSubmitting || hasValidationErrors);
 
+  const hasUploaded =
+    typeof values.avatar !== "string" && values.avatar !== null;
+
   return (
     <Segment as={"main"}>
       <HeadingMedium className={css({ marginBottom: "1em" })}>
@@ -136,7 +134,6 @@ function ProfileClientPage() {
             onRetry={() => setErrors((e) => ({ ...e, avatar: null }))}
             overrides={{
               ButtonComponent: (props) => {
-                const hasUploaded = values.avatar instanceof File;
                 return (
                   <div className={css({ padding: "1em" })}>
                     <Button {...props}>
@@ -159,7 +156,6 @@ function ProfileClientPage() {
               },
               ContentMessage: {
                 component: () => {
-                  const hasUploaded = values.avatar instanceof File;
                   if (user.avatar || hasUploaded) {
                     return (
                       <div className={css({ width: "100%", height: "100%" })}>

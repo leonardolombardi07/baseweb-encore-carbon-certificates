@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "...",
 };
 
-export default function SettingsPage() {
+export default function ProfilePage() {
   return (
     <main style={{ padding: "1em" }}>
       <ProfileClientPage />

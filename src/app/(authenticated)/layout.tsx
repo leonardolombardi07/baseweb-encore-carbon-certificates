@@ -84,7 +84,7 @@ function Sidebar({ visible, onClose }: SidebarProps) {
     <ResponsiveSidebarContainer $visible={visible} onClose={onClose}>
       <ResponsiveCloseSidebarOverlay $visible={visible} onClick={onClose} />
       <div style={{ padding: "1.5em" }}>
-        <Logo width={160} />
+        <Logo width={160} priority />
       </div>
 
       <ul>
