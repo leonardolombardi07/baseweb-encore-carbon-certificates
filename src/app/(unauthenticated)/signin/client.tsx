@@ -9,11 +9,11 @@ import { Button } from "baseui/button";
 import { ARTWORK_TYPE, Banner, HIERARCHY, KIND } from "baseui/banner";
 import { DeleteAlt } from "baseui/icon";
 import Image from "next/image";
-import Logo from "../../../../public/images/Logo.png";
 import { ParagraphMedium } from "baseui/typography";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { validateEmail, validatePassword } from "@/utils/validation";
+import { Logo } from "@/components/content/Logo";
 
 interface FormValues {
   email: string;
@@ -89,16 +89,15 @@ function ClientSignInPage() {
         margin: "auto",
       })}
     >
-      <Image
-        src={Logo}
+      <Logo
         width={200}
-        alt="encore logo"
         priority
         className={css({
           display: "block",
           margin: "1em auto 2em",
         })}
       />
+
       <FormControl label="E-mail" error={errors.email}>
         <Input
           autoFocus
@@ -111,7 +110,6 @@ function ClientSignInPage() {
           }}
         />
       </FormControl>
-
       <FormControl label="Senha" error={errors.password}>
         <Input
           type="password"
@@ -124,7 +122,6 @@ function ClientSignInPage() {
           }}
         />
       </FormControl>
-
       <Button
         isLoading={isSubmitting}
         disabled={disableSubmit}
@@ -136,7 +133,6 @@ function ClientSignInPage() {
       >
         Entrar
       </Button>
-
       {submitError && (
         <Banner
           title="Erro"
@@ -152,7 +148,6 @@ function ClientSignInPage() {
           {submitError}
         </Banner>
       )}
-
       <ParagraphMedium
         className={css({ textAlign: "center", marginTop: "1em" })}
       >

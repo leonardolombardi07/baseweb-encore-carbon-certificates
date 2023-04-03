@@ -17,9 +17,6 @@ import {
 } from "@/components/icons";
 import { Button } from "baseui/button";
 import { Avatar } from "baseui/avatar";
-import Image from "next/image";
-import LogoWhitePng from "../../../public/images/LogoWhite.png";
-import LogoBlackPng from "../../../public/images/LogoBlack.png";
 import Link, { LinkProps } from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Breadcrumbs } from "baseui/breadcrumbs";
@@ -28,6 +25,7 @@ import { OutsideClickListener } from "@/components/utility/OutsideClickListener"
 import { RootLayout } from "../root";
 import { capitalizeFirstLetter } from "@/utils/text";
 import { useThemeState } from "@/state/theme";
+import { Logo } from "@/components/content/Logo";
 
 export default function RootAuthenticatedLayout({
   children,
@@ -86,11 +84,7 @@ function Sidebar({ visible, onClose }: SidebarProps) {
     <ResponsiveSidebarContainer $visible={visible} onClose={onClose}>
       <ResponsiveCloseSidebarOverlay $visible={visible} onClick={onClose} />
       <div style={{ padding: "1.5em" }}>
-        <Image
-          width={160}
-          alt="Logo"
-          src={theme === "light" ? LogoBlackPng : LogoWhitePng}
-        />
+        <Logo width={160} />
       </div>
 
       <ul>

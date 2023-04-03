@@ -8,8 +8,6 @@ import { useStyletron } from "@/styles";
 import { Button } from "baseui/button";
 import { ARTWORK_TYPE, Banner, HIERARCHY, KIND } from "baseui/banner";
 import { DeleteAlt } from "@/components/icons";
-import Image from "next/image";
-import Logo from "../../../../public/images/Logo.png";
 import { ParagraphMedium } from "baseui/typography";
 import Link from "next/link";
 import {
@@ -17,6 +15,7 @@ import {
   validatePassword,
   validateUsername,
 } from "@/utils/validation";
+import { Logo } from "@/components/content/Logo";
 
 interface FormValues {
   username: string;
@@ -95,10 +94,8 @@ function ClientSignUpPage() {
         margin: "auto",
       })}
     >
-      <Image
-        src={Logo}
+      <Logo
         width={200}
-        alt="encore logo"
         priority
         className={css({
           display: "block",
